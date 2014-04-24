@@ -40,6 +40,14 @@ body {
 #inscription {
 	float: left;
 	width: auto;
+	padding-top: 6%;
+}
+
+#buttonAjout {
+	background: url(../img/add.ico) no-repeat left;
+	padding-left: 13px;
+	padding-top: 3px;
+	border: none;
 }
 
 #connexion {
@@ -47,7 +55,6 @@ body {
 	height: auto;
 	float: left;
 	padding-left: 20px;
-	
 }
 
 #connexion #login {
@@ -67,6 +74,10 @@ body {
 	width: auto;
 	float: right;
 	margin-top: 10px;
+	background: url(../img/valider.png) no-repeat left;
+	padding-left: 22px;
+	padding-top: 7px;
+	border: none;
 }
 
 #logo img {
