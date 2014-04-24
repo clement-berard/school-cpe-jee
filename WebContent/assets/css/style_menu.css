@@ -1,11 +1,25 @@
 .item-menu-principal {
-	background-color: red;
-	margin-right: 5px;
-	min-height: 200px;
+	padding: 350px 300px 0 300px;
+}
+
+.logo_menu_recipes {
+	background: url(../img/logo_menu_recipe.png) no-repeat;
+}
+
+.logo_menu_emergency {
+	background: url(../img/logo_menu_emergency.png) no-repeat;
+}
+
+.logo_menu_shop {
+	background: url(../img/logo_menu_shop.png) no-repeat;
+}
+
+.item-menu-principal:hover {
+	opacity: 0.6;
 }
 
 .marketing {
 	margin-left: 15%;
-	margin-top: 10%;
+	margin-top: 30%;
 	text-align: center
 }
