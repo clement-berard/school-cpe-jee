@@ -6,28 +6,24 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css"/>
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
-	<link rel="stylesheet" type="text/css" href="assets/css/style_menu.css"/>
+	<link rel="stylesheet" type="text/css" href="assets/css/bootstrap.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/style_menu.css" />
 </h:head>
 
 <h:body>
 
-	<div id="page">
 
-		
-		<div id="content">
-			<ui:insert name="content">
-				<ui:include src="/template/menu/menu.xhtml" />
-			</ui:insert>
-		</div>
-		
-		<div id="footer">
-			<ui:insert name="footer">
-				<ui:include src="/template/footer.xhtml" />
-			</ui:insert>
-		</div>
+	<div id="content">
+		<ui:insert name="content">
+			<ui:include src="/template/menu/menu.xhtml" />
+		</ui:insert>
+	</div>
 
+	<div id="footer">
+		<ui:insert name="footer">
+			<ui:include src="/template/footer.xhtml" />
+		</ui:insert>
 	</div>
 
 </h:body>
