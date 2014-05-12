@@ -37,7 +37,7 @@ public class UserDao {
 
 			// Executer puis parcourir les résultats
 			String sql = "INSERT INTO `binome32`.`UserTestTP` (`surname`, `lastname`, `age`, `login`, `pwd`) VALUES ('"
-					+ user.getSurname()
+					+ user.getFirstname()
 					+ "', '"
 					+ user.getLastname()
 					+ "', '"
