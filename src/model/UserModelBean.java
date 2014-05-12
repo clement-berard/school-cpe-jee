@@ -5,23 +5,26 @@ import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
-@ManagedBean
+@ManagedBean(name = "leuser")
 @SessionScoped
-//contrainte BEAN implements Serializable
-public class UserModelBean implements Serializable{
-	private String lastname;
-	private String surname;
-	private int age;
-	private String login;
-	private String pwd;
-	
-	//Contrainte BEAN constructeur sans paramètre
+// contrainte BEAN implements Serializable
+public class UserModelBean implements Serializable {
+	protected String lastname;
+	protected String firstname;
+	protected String email;
+
+	protected int age;
+	protected String login;
+	protected String pwd;
+
+	// Contrainte BEAN constructeur sans paramètre
 	public UserModelBean() {
 	}
-	
-	public UserModelBean(String lastname,String surname,int age,String login,String pwd) {
+
+	public UserModelBean(String lastname, String surname, int age,
+			String login, String pwd) {
 		this.lastname = lastname;
-		this.surname = surname;
+		this.firstname = surname;
 		this.age = age;
 		this.login = login;
 		this.pwd = pwd;
@@ -35,12 +38,20 @@ public class UserModelBean implements Serializable{
 		this.lastname = lastname;
 	}
 
-	public String getSurname() {
-		return surname;
+	public String getFirstname() {
+		return firstname;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void setFirstname(String fisrtname) {
+		this.firstname = fisrtname;
 	}
 
 	public int getAge() {
@@ -66,12 +77,12 @@ public class UserModelBean implements Serializable{
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
-	
-	
+
 	@Override
 	public String toString() {
-		return "[SURNAME]:"+this.getSurname()+",[LASTNAME]:"+this.getLastname()+",[AGE]:"+this.getAge()+",[LOGIN]:"+this.getLogin()+",[PWD]:"+this.getPwd();
+		return "[SURNAME]:" + this.getFirstname() + ",[LASTNAME]:"
+				+ this.getLastname() + ",[AGE]:" + this.getAge() + ",[LOGIN]:"
+				+ this.getLogin() + ",[PWD]:" + this.getPwd();
 	}
-	
 
 }
