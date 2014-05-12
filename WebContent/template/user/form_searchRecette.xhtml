@@ -2,12 +2,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <body>
 	<ui:composition>
 		<div class="container">
 			
-			<form class="form-horizontal" role="form" id="formTeachMe">
+			<h:form class="form-horizontal" role="form" id="formTeachMe">
 			<div class="row">
 				<span class="label label-default col-md-6 col-md-offset-3">Tell what do you want !</span>		
 			</div>
@@ -46,7 +50,8 @@
 					</div>		
 					<div class="">
 					    <label for="slider">For how many people ?</label>
-						<input name="slider" type="range" id="slider" />
+						<p:inputText id="txt1" value="#{sliderBean.number1}" />
+        				<p:slider for="txt1" />
 					</div>
 				</div>
 
@@ -71,7 +76,7 @@
 				</div>
 			</div>	
 				
-			</form>
+			</h:form>
 
 		</div>
 
