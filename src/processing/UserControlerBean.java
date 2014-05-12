@@ -50,9 +50,13 @@ public class UserControlerBean {
 
 		// Vérifier les propriétés de l'utilisateur
 		// TODO
-		System.out.println(userSubmitted.toString());
+		LoginBean l = new LoginBean();
+		l.setLogin(userSubmitted.getLogin());
+		l.setPwd(userSubmitted.getPwd());
+		checkUser(l);
+//		System.out.println(userSubmitted.toString());
 		// ajout de l'utilisateur à la base de données
-		//this.userDao.addUser(userSubmitted);
+		this.userDao.addUser(userSubmitted);
 	}
 
 }
