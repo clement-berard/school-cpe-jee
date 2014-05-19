@@ -28,7 +28,6 @@ public class UserControlerBean {
 		UserModelBean user = this.userDao.checkUser(loginBean.getLogin(),
 				loginBean.getPwd());
 		if (user != null) {
-
 			// récupère l'espace de mémoire de JSF
 			ExternalContext externalContext = FacesContext.getCurrentInstance()
 					.getExternalContext();
@@ -55,10 +54,6 @@ public class UserControlerBean {
 		} else {
 			this.userDao.addUser(userSubmitted);
 		}
-
-		// System.out.println(userSubmitted.toString());
-		// ajout de l'utilisateur à la base de données
-		//
 	}
 
 }
