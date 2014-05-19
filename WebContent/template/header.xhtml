@@ -2,7 +2,11 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
 <body>
 	<ui:composition>
 		<div id="fondActivite">
@@ -14,11 +18,23 @@
 				</a>
 			</div>
 			<div id="connexion">
-				<form class="form-horizontal" role="form">
-					<input id="login" type="text" name="login" placeholder="Login" class="form-control" /> 
-					<input id="pwd" type="password" name="pwd" placeholder="Password" class="form-control" /> 
-					<input id="buttonConnexion" type="submit" name="connexion" value=" " />
-				</form>
+				<h:form>
+					<p:panel id="panel" header="Connexion">
+						<h:panelGrid columns="3" cellpadding="5">
+							<h:outputLabel for="login" value="Login" />
+							<p:inputText id="login" value="#{lelogin.login}" />
+							<p:message for="login" display="icon" />
+							<h:outputLabel for="pwd" value="Password"
+								style="font-weight:bold" />
+							<p:password id="pwd" value="#{lelogin.pwd}" />
+
+
+						</h:panelGrid>
+
+						<p:commandButton value="Go" update="display" action="#{lecontrolleruser.checkUser(lelogin)}" icon="ui-icon-check" />
+						<h:outputText id="display" value="#{lelogin.login}" style="color:red" />
+					</p:panel>
+				</h:form>
 			</div>
 		</div>
 	</ui:composition>
