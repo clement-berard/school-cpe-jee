@@ -1,5 +1,6 @@
 package processing;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -41,7 +42,7 @@ public class RecipeControlerBean {
 
 	}
 
-	public void searchRecette(RecipeModelBean recette) {
+	public void searchRecette(RecipeModelBean recette) throws IOException {
 
 		ArrayList<RecipeModelBean> list = this.recipeDao
 				.getAllSearchRecipes(recette);
@@ -59,6 +60,7 @@ public class RecipeControlerBean {
 
 		// place la liste de recette dans l'espace de mémoire de JSF
 		sessionMap.put("recipeList", recipeList);
+		externalContext.redirect("resultat.jsf");
 	}
 
 }
