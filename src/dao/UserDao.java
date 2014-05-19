@@ -73,8 +73,8 @@ public class UserDao {
 			while (rs.next()) {
 				// Création de l'utilisateur
 				UserModelBean user = new UserModelBean(
-						rs.getString("lastname"), rs.getString("surname"),
-						rs.getInt("age"), rs.getString("login"),
+						rs.getString("lastname"), rs.getString("fisrtname"),
+						rs.getInt("age"), rs.getString("login"),rs.getString("email"),
 						rs.getString("pwd"));
 				System.out.println("User : " + user);
 
@@ -108,13 +108,11 @@ public class UserDao {
 					.executeQuery("SELECT * FROM "+this.useTable+" where login='"
 							+ login + "' and pwd='" + pwd + "';");
 
-			if (!rs.next()) {
-				return null;
-			} else {
+			while(rs.next()) {
 				// Création de l'utilisateur
 				UserModelBean user = new UserModelBean(
-						rs.getString("lastname"), rs.getString("surname"),
-						rs.getInt("age"), rs.getString("login"),
+						rs.getString("lastname"), rs.getString("firstname"),
+						rs.getInt("age"), rs.getString("login"),rs.getString("email"),
 						rs.getString("pwd"));
 				System.out.println("User Login : " + user);
 				return user;
@@ -123,6 +121,7 @@ public class UserDao {
 			e.printStackTrace();
 			return null;
 		}
+		return null;
 
 	}
 

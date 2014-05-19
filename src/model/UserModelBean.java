@@ -22,11 +22,12 @@ public class UserModelBean implements Serializable {
 	}
 
 	public UserModelBean(String lastname, String surname, int age,
-			String login, String pwd) {
+			String login,String email, String pwd) {
 		this.lastname = lastname;
 		this.firstname = surname;
 		this.age = age;
 		this.login = login;
+		this.email = email;
 		this.pwd = pwd;
 	}
 

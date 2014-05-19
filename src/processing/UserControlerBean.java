@@ -48,15 +48,17 @@ public class UserControlerBean {
 
 	public void checkAndAddUser(UserSubmissionModelBean userSubmitted) {
 
-		// Vérifier les propriétés de l'utilisateur
-		// TODO
-		LoginBean l = new LoginBean();
-		l.setLogin(userSubmitted.getLogin());
-		l.setPwd(userSubmitted.getPwd());
-		checkUser(l);
-//		System.out.println(userSubmitted.toString());
+		UserModelBean user = this.userDao.checkUser(userSubmitted.getLogin(),
+				userSubmitted.getPwd());
+		if (user != null) {
+	
+		} else {
+			this.userDao.addUser(userSubmitted);
+		}
+
+		// System.out.println(userSubmitted.toString());
 		// ajout de l'utilisateur à la base de données
-		this.userDao.addUser(userSubmitted);
+		//
 	}
 
 }
