@@ -12,7 +12,7 @@
 	<ui:composition>
 		<div class="container">
 			<h:form id="form">
-				<p:dataGrid var="listRecipes" value="#{resultatView.listRecipes}" columns="3"
+				<p:dataGrid var="listRecipes" value="#{recipeList.getRecipeList()}" columns="3"
 					rows="12" paginator="true"
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 					rowsPerPageTemplate="9,12,15">

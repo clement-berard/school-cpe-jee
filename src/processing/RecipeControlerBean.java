@@ -53,6 +53,9 @@ public class RecipeControlerBean {
 			recipeList.addRecipeList(recipe);
 		}
 
+//		for (int i = 0; i < recipeList.getRecipeList().size(); i++) {
+//			System.out.println("Contenu de recipeList: "+recipeList.getRecipeList().get(i).toString());
+//		}
 		// récupère l'espace de mémoire de JSF
 		ExternalContext externalContext = FacesContext.getCurrentInstance()
 				.getExternalContext();
