@@ -42,7 +42,7 @@ public class RecipeControlerBean {
 
 	}
 
-	public void searchRecette(RecipeModelBean recette) throws IOException {
+	public String searchRecette(RecipeModelBean recette) throws IOException {
 
 		ArrayList<RecipeModelBean> list = this.recipeDao
 				.getAllSearchRecipes(recette);
@@ -63,7 +63,29 @@ public class RecipeControlerBean {
 
 		// place la liste de recette dans l'espace de mémoire de JSF
 		sessionMap.put("recipeList", recipeList);
-		externalContext.redirect("resultat.jsf");
+		return "resultat.xhtml";
+	}
+	
+	public String getDetails(RecipeModelBean recette){
+		
+		ExternalContext externalContext = FacesContext.getCurrentInstance()
+				.getExternalContext();
+		Map<String, Object> sessionMap = externalContext.getSessionMap();
+
+		// place la liste de recette dans l'espace de mémoire de JSF
+		sessionMap.put("recipeDetail", recette);
+		return "details.xhtml";
 	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

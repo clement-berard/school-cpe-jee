@@ -5,28 +5,32 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:p="http://primefaces.org/ui">
+
 
 <body>
 	<ui:composition>
 		<div class="container">
+
 			<h:form id="form">
-				<p:dataGrid var="listRecipes" value="#{recipeList.getRecipeList()}" columns="3"
-					rows="12" paginator="true"
+				<p:dataGrid var="recipe" value="#{sessionScope['recipeList'].getRecipeList()}"
+					columns="3" rows="12" paginator="true"
 					paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
 					rowsPerPageTemplate="9,12,15">
-
-					<p:panel header="#{listRecipes.title}" style="text-align:center">
+					<p:panel header="#{recipe.title}" style="text-align:center">
 						<h:panelGrid columns="1" style="width:100%">
-							<p:graphicImage value="/images/cars/#{car.manufacturer}.jpg" />
-
-							<h:outputText value="#{listRecipes.type}" />
-
 							
+								<h:outputText value="#{recipe.type}"/>
+                                <h:outputText value="#{recipe.duration}"/>
+                                <h:outputText value="#{recipe.nbpeople}"/>
+                                <p:rating value="#{recipe.expertise}" readonly="true"/>
+							
+                                <h:commandButton value="More details >"
+                                                 action="#{lecontrollerecette.getDetails(recipe)}">
+                                </h:commandButton>
+                               
 						</h:panelGrid>
 					</p:panel>
-
 				</p:dataGrid>
 			</h:form>
 		</div>

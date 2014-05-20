@@ -29,3 +29,12 @@ Partie utilisateur
 + Enregistrement d'un utilisateur
 + Validation des champs pour l'ajout d'un utilisateur
 - Le match entre les 2 passwords
+
+
+
+===========================
+Partie Présentation recette
+===========================
++Recherche de Recettes
++Page affichage des Recettes
++Page du detail de la recette 

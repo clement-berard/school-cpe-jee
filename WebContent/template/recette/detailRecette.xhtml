@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<body>
+	<ui:composition>
+		<div class="container">
+			<div id="containerInformation">
+				<div class="Information">
+					<h:outputText value="#{recipeDetail.type}" />
+				</div>
+				<div class="Information">
+					<h:outputText value="#{recipeDetail.duration}" />
+				</div>
+				<div class="Information">
+					<h:outputText value="#{recipeDetail.nbpeople}" />
+				</div>
+				<div class="Information">
+					<p:rating value="#{recipeDetail.expertise}" readonly="true" />
+				</div>
+			</div>
+
+		</div>
+		<div class="Detail">
+			<h:outputText value="#{recipeDetail.title}" />
+			<h:commandButton value="Back"
+				action="#{lecontrollerecette.getDetails(recipe)}">
+			</h:commandButton>
+			<h:outputText value="#{recipeDetail.description}" />
+		</div>
+
+
+	</ui:composition>
+</body>
+</html>
