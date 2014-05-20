@@ -30,6 +30,20 @@ Partie template
 + création de plusieurs pages
 + Page avec le menu réalisée mais les liens ne sont pas fonctionnels
 
+****** Explication des pages à ouvrir : 
+
+Les pages sont en .xhtml, il faut les ouvrir dans le navigateur en .jsf
+A la racine du dossier web se trouve : 
+
+  - default.xhtml : page du site par défaut
+  - detail.xhtml : détail d'une recette
+  - menu.xhtml : existe, mais les liens ne correspondent pas
+  - resultat.xhtml : resultat d'une reherche
+  - searchRecette.xhtml : page de recherche d'une recette
+  - signup.xhtml : page d'inscription d'un utilisateur
+
+*******
+
 ======================
 Partie utilisateur
 ======================
