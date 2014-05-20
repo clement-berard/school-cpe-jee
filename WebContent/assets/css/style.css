@@ -22,7 +22,8 @@
 }
 
 #content {
-	
+	padding-bottom: 100px;
+	padding-top: 100px;
 }
 /* Custom page CSS
 -------------------------------------------------- */
@@ -194,6 +195,7 @@
 }
 
 #teachMe {
+	padding-left: 48%;
 	
 }
 
@@ -210,11 +212,35 @@
 }
 
 .Information {
-	
+	width: 80px;
+}
+
+#InformationNote {
+	width: 200px;
+}
+
+#InformationNote img{
+	float:left;
 }
 
 #containerInformation {
 	border-width: 1px;
 	border-style: solid;
 	border-color: black;
+	height:120px;
+	}
+	
+#containerDetail {
+	padding-top: 37px;
+}
+
+#containerD {
+	width: auto;
+	max-width: 680px;
+	padding: 0 15px;
+	float:left;
+}
+
+#back{
+	float: right;
 }

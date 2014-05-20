@@ -10,29 +10,37 @@
 
 <body>
 	<ui:composition>
-		<div class="container">
+		<div id="containerD">
 			<div id="containerInformation">
 				<div class="Information">
+					<img src="assets/img/cook.png" alt="" />
 					<h:outputText value="#{recipeDetail.type}" />
 				</div>
 				<div class="Information">
+					<img src="assets/img/time.png" alt="" />
 					<h:outputText value="#{recipeDetail.duration}" />
 				</div>
 				<div class="Information">
+					<img src="assets/img/people.png" alt="" />
 					<h:outputText value="#{recipeDetail.nbpeople}" />
 				</div>
-				<div class="Information">
+				<div id="InformationNote">
+					<img src="assets/img/note.png" alt="" />
 					<p:rating value="#{recipeDetail.expertise}" readonly="true" />
 				</div>
 			</div>
 
 		</div>
-		<div class="Detail">
-			<h:outputText value="#{recipeDetail.title}" />
-			<h:commandButton value="Back"
-				action="#{lecontrollerecette.getDetails(recipe)}">
-			</h:commandButton>
-			<h:outputText value="#{recipeDetail.description}" />
+		<div id="containerDetail">
+			<div class="Detail">
+				<h:outputText value="#{recipeDetail.title}" />
+				<h:commandButton value="Back"
+					action="#{lecontrollerecette.getDetails(recipe)}" id="back">
+				</h:commandButton>
+			</div>
+			<div class="Detail">
+				<h:outputText value="#{recipeDetail.description}" />
+			</div>
 		</div>
 
 
