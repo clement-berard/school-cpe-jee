@@ -19,6 +19,24 @@ import dao.UserDao;
 // l'ensemble des clients
 public class UserControlerBean {
 	private UserDao userDao;
+	private UserModelBean userLogged = null;
+	private String message;
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+	public UserModelBean getUserLogged() {
+		return userLogged;
+	}
+
+	public void setUserLogged(UserModelBean userLogged) {
+		this.userLogged = userLogged;
+	}
 
 	public UserControlerBean() {
 		this.userDao = DaoFabric.getInstance().createUserDao();
@@ -35,11 +53,15 @@ public class UserControlerBean {
 
 			// place l'utilisateur dans l'espace de mémoire de JSF
 			sessionMap.put("loggedUser", user);
+			this.userLogged = user;
+			// pour les tests
+			//sessionMap.remove("loggedUser");
 
 			// redirect the current page
+			this.message = "ok bien connecté !";
 			return "userdisplay.xhtml";
 		} else {
-
+			this.message = "Vous avez fait une erreur !";
 			// redirect the current page
 			return "userLogin.xhtml";
 		}
@@ -50,7 +72,7 @@ public class UserControlerBean {
 		UserModelBean user = this.userDao.checkUser(userSubmitted.getLogin(),
 				userSubmitted.getPwd());
 		if (user != null) {
-	
+
 		} else {
 			this.userDao.addUser(userSubmitted);
 		}

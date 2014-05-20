@@ -18,7 +18,7 @@
 				</a>
 			</div>
 			<div id="connexion">
-				<h:form>
+				<h:form id="formlogin" rendered="#{lecontrolleruser.userLogged eq null}">
 					<p:panel id="panel" header="Connexion">
 						<h:panelGrid columns="3" cellpadding="5">
 							<h:outputLabel for="login" value="Login" />
@@ -27,14 +27,19 @@
 							<h:outputLabel for="pwd" value="Password"
 								style="font-weight:bold" />
 							<p:password id="pwd" value="#{lelogin.pwd}" />
-
-
 						</h:panelGrid>
-
-						<p:commandButton value="Go" update="display" action="#{lecontrolleruser.checkUser(lelogin)}" icon="ui-icon-check" />
-						<h:outputText id="display" value="#{lelogin.login}" style="color:red" />
+						<p:commandButton value="Go" update="formlogin"
+							action="#{lecontrolleruser.checkUser(lelogin)}"
+							icon="ui-icon-check" />
 					</p:panel>
+					<h:outputText id="displayMessage" value="#{lecontrolleruser.message}" />
 				</h:form>
+				
+				<p:panel rendered="#{lecontrolleruser.userLogged ne null}"
+					id="okLoginPanelGrid">
+					<h:outputText id="clienteLogado"
+						value="#{lecontrolleruser.userLogged.login}" />
+				</p:panel>
 			</div>
 		</div>
 	</ui:composition>
