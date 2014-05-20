@@ -20,9 +20,9 @@
 					<p:panel header="#{recipe.title}" style="text-align:center">
 						<h:panelGrid columns="1" style="width:100%">
 							
-								<h:outputText value="#{recipe.type}"/>
-                                <h:outputText value="#{recipe.duration}"/>
-                                <h:outputText value="#{recipe.nbpeople}"/>
+								<h:outputText value="Type: #{recipe.type}"/>
+                                <h:outputText value="Durée: #{recipe.duration}"/>
+                                <h:outputText value="Nb personne: #{recipe.nbpeople}"/>
                                 <p:rating value="#{recipe.expertise}" readonly="true"/>
 							
                                 <h:commandButton value="More details >"
