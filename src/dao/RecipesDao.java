@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import model.RecipeModel;
+import model.RecipeModelBean;
 
 public class RecipesDao {
 
@@ -23,7 +23,7 @@ public class RecipesDao {
 		dB_PWD = DB_PWD;
 	}
 
-	public void addRecipe(RecipeModel recipe) {
+	public void addRecipe(RecipeModelBean recipe) {
 		// Création de la requête
 		java.sql.Statement query;
 		
@@ -54,8 +54,8 @@ public class RecipesDao {
 		}
 	}
 
-	public ArrayList<RecipeModel> getAllRecipes() {
-		ArrayList<RecipeModel> recipeList = new ArrayList<RecipeModel>();
+	public ArrayList<RecipeModelBean> getAllRecipes() {
+		ArrayList<RecipeModelBean> recipeList = new ArrayList<RecipeModelBean>();
 
 		// Création de la requête
 		java.sql.Statement query;
@@ -71,12 +71,54 @@ public class RecipesDao {
 
 			// Executer puis parcourir les résultats
 			java.sql.ResultSet rs = query
-					.executeQuery("SELECT * FROM RecipeTestTP;");
+					.executeQuery("SELECT * FROM recipes;");
 			while (rs.next()) {
 				// Création de  la recette
-				RecipeModel recipe = new RecipeModel(
+				RecipeModelBean recipe = new RecipeModelBean(
 						rs.getString("title"), rs.getString("description"),
-						rs.getInt("expertise"), rs.getInt("duration"),
+						rs.getInt("expertise"), rs.getString("duration"),
+						rs.getInt("nbpeople"), rs.getString("type"));
+				System.out.println("Recipe : " + recipe);
+
+				// ajout de la recette récupérée à la liste
+				recipeList.add(recipe);
+			}
+			rs.close();
+			query.close();
+			connection.close();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return recipeList;
+	}
+	
+	public ArrayList<RecipeModelBean> getAllSearchRecipes(RecipeModelBean recette) {
+		ArrayList<RecipeModelBean> recipeList = new ArrayList<RecipeModelBean>();
+
+		// Création de la requête
+		java.sql.Statement query;
+
+		try {
+		
+		// create connection
+		connection = java.sql.DriverManager.getConnection("jdbc:mysql://"
+				+ dB_HOST + ":" + dB_PORT + "/" + dB_NAME, dB_USER, dB_PWD);
+
+			// Creation de l'élément de requète
+			query = connection.createStatement();
+
+			// Executer puis parcourir les résultats
+			java.sql.ResultSet rs = query
+					.executeQuery("SELECT * FROM recipes where expertise='"
+							+ recette.getExpertise() + "' and duration='" + recette.getDuration() + "' and nbpeople='" + recette.getNbpeople() + "' and type='" + recette.getType() + "';");
+			
+			while (rs.next()) {
+				// Création de  la recette
+				RecipeModelBean recipe = new RecipeModelBean(
+						rs.getString("title"), rs.getString("description"),
+						rs.getInt("expertise"), rs.getString("duration"),
 						rs.getInt("nbpeople"), rs.getString("type"));
 				System.out.println("Recipe : " + recipe);
 
